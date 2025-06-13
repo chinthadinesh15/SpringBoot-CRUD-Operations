@@ -92,4 +92,16 @@ public class BookController
 		
 		return m;  
 	}
+
+	@GetMapping("/edit")
+	public ModelAndView editBooks(@RequestParam("bookId") Integer bookId)
+	{
+		Book bookById = service.getBookById(bookId);
+
+		ModelAndView m = new ModelAndView();
+		m.addObject("book",bookById);
+		m.setViewName("index");
+
+		return m;
+	}
 }
